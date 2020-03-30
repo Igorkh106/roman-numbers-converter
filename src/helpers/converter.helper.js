@@ -1,6 +1,4 @@
 export function toRoman(input) {
-  console.log('to roman');
-
   const conversionMap = {
     M: 1000,
     CM:900,
@@ -28,7 +26,25 @@ export function toRoman(input) {
   return roman;
 }
 
-export function toInteger(val) {
-  console.log('to int');
-  return val;
+export function toInteger(input) {
+  const conversionMap = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000
+  };
+
+  let intResult = 0;
+  for (let i = 0; i < input.length; i++) {
+    if (conversionMap[input[i]] < conversionMap[input[i+1]]) {
+      intResult-=conversionMap[input[i]]
+    }
+    else {
+      intResult+=conversionMap[input[i]]
+    }
+  }
+  return intResult;
 }
