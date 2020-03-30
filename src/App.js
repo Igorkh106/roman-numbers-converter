@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Roman-integer converter
       </header>
+      <div className="Content-form">
+        <input type="text" placeholder="type value, ex. 26, XVII" />
+        <button>Convert to integer</button>
+        <button>Convert to roman</button>
+        <span>result</span>
+      </div>
     </div>
   );
 }
