@@ -8,14 +8,16 @@ class App extends React.Component {
     this.state = {input: '', result: ''}
   }
   convertToInteger() {
-    console.log(this.state);
     const result = Converter.toInteger(this.state.input);
     this.setState({result});
   }
 
   convertToRoman() {
-    console.log(this.state);
-    const result = Converter.toRoman(this.state.input);
+    let {input, result } = this.state;
+    if(input.length < 1) return;
+
+    input = parseInt(input);
+    result = Converter.toRoman(input);
     this.setState({result});
   }
 
