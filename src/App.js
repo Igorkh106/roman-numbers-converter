@@ -8,17 +8,30 @@ class App extends React.Component {
     this.state = {input: '', result: ''}
   }
   convertToInteger() {
-    const result = Converter.toInteger(this.state.input);
-    this.setState({result});
+    let {input, result } = this.state;
+    const romanRegEx = /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/;
+
+    let validatedInput = input.match(romanRegEx);
+    if(validatedInput) {
+      result = Converter.toInteger(validatedInput[0]);
+      this.setState({result});
+    } else {
+      this.setState({result: 'Invalid Input'});
+    }
   }
 
   convertToRoman() {
     let {input, result } = this.state;
-    if(input.length < 1) return;
+    if(input.length < 1) { return }
 
     input = parseInt(input);
-    result = Converter.toRoman(input);
-    this.setState({result});
+    if(input) {
+      result = Converter.toRoman(input);
+      this.setState({result});
+    } else {
+      this.setState({result: 'Invalid Input'});
+    }
+
   }
 
   handleChange(e) {
