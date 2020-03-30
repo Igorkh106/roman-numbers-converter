@@ -3,14 +3,13 @@
 }
 
 .App-header {
-  background-color: #fff;
   min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  font-weight: 700;
 }
 
 .Content-form {
@@ -60,6 +59,7 @@ input {
 
 button {
   display: flex;
+  flex-wrap: wrap;
   font-size: 18px;
   border-radius: 10px;
   transition: background-color ease .3s;
@@ -68,4 +68,15 @@ button {
 button:hover {
   background-color: #ccc;
   color: #dd2200;
+}
+
+@media (max-width: 480px) {
+  .Buttons-bar {
+    flex-direction: column;
+  }
+
+  button {
+    flex: 1;
+    padding: 5px;
+  }
 }
